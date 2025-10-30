@@ -610,7 +610,7 @@ mod c {
             sources.extend(&[("__emutls_get_address", "emutls.c")]);
         }
 
-        if target.os == "solana" {
+        if target.os == "tos" {
             cfg.define("__ELF__", None);
         }
 

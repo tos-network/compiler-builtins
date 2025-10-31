@@ -124,6 +124,7 @@ impl_normalization_shift!(
 /// `checked_div` and `checked_rem` are used to avoid bringing in panic function
 /// dependencies.
 #[inline]
+#[allow(clippy::collapsible_if)]
 fn u64_by_u64_div_rem(duo: u64, div: u64) -> (u64, u64) {
     if let Some(quo) = duo.checked_div(div) {
         if let Some(rem) = duo.checked_rem(div) {
@@ -226,6 +227,7 @@ impl_asymmetric!(
 /// dependencies.
 #[inline]
 #[allow(dead_code)]
+#[allow(clippy::collapsible_if)]
 fn u32_by_u32_div_rem(duo: u32, div: u32) -> (u32, u32) {
     if let Some(quo) = duo.checked_div(div) {
         if let Some(rem) = duo.checked_rem(div) {

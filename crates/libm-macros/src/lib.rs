@@ -142,6 +142,7 @@ pub fn for_each_function(tokens: pm::TokenStream) -> pm::TokenStream {
 /// Check for any input that is structurally correct but has other problems.
 ///
 /// Returns the list of function names that we should expand for.
+#[allow(clippy::collapsible_if)]
 fn validate(input: &mut StructuredInput) -> syn::Result<Vec<&'static MathOpInfo>> {
     // Replace magic mappers with a list of relevant functions.
     if let Some(map) = &mut input.fn_extra {

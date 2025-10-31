@@ -98,14 +98,6 @@ jobs:
         - target: x86_64-pc-windows-gnu
           os: windows-2025
           channel: nightly-2025-04-29-x86_64-gnu
-        - target: tbpf-tos-tos
-          os: ubuntu-24.04
-        - target: tbpfv1-tos-tos
-          os: ubuntu-24.04
-        - target: tbpfv2-tos-tos
-          os: ubuntu-24.04
-        - target: tbpfv3-tos-tos
-          os: ubuntu-24.04
     runs-on: ${{ matrix.os }}
     needs: [calculate_vars]
     env:
@@ -119,7 +111,6 @@ jobs:
       with:
         submodules: true
     - name: Install Rust (rustup)
-      if: ${{ !startsWith(matrix.target, 'tbpf') }}
       shell: bash
       run: |
         channel="nightly-2025-04-29"
@@ -128,13 +119,6 @@ jobs:
         rustup update "$channel" --no-self-update
         rustup default "$channel"
         rustup target add "${{ matrix.target }}"
-    - name: Install Rust (rustup)
-      if: ${{ startsWith(matrix.target, 'tbpf') }}
-      shell: bash
-      run: |
-        channel="nightly-2025-04-29"
-        rustup update "$channel" --no-self-update
-        rustup default "$channel"
     - uses: taiki-e/install-action@nextest
     - uses: Swatinem/rust-cache@v2
       with:

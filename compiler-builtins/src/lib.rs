@@ -12,6 +12,7 @@
 #![feature(isqrt)]
 #![cfg_attr(f16_enabled, feature(f16))]
 #![cfg_attr(f128_enabled, feature(f128))]
+#![feature(let_chains)]
 #![no_builtins]
 #![no_std]
 #![allow(unused_features)]

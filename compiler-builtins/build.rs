@@ -53,6 +53,7 @@ fn main() {
         || target.arch.contains("aarch64")
         || target.arch.contains("bpf")
         || target.arch.contains("sbf")
+        || target.arch.contains("tbf")
     {
         println!("cargo:rustc-cfg=feature=\"mem-unaligned\"");
     }

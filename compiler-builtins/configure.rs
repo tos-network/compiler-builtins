@@ -100,7 +100,7 @@ pub fn configure_f16_f128(target: &Target) {
         "sparc" | "sparc64" => false,
         "wasm32" | "wasm64" => false,
         // TOS/BPF: eBPF doesn't support floating point operations
-        "bpf" | "sbf" | "tbf" => false,
+        "bpf" | "tbf" => false,
         // Most everything else works as of LLVM 19
         _ => true,
     };
@@ -119,7 +119,7 @@ pub fn configure_f16_f128(target: &Target) {
         // Selection failure <https://github.com/llvm/llvm-project/issues/41838>
         "sparc" => false,
         // TOS/BPF: eBPF doesn't support floating point operations
-        "bpf" | "sbf" | "tbf" => false,
+        "bpf" | "tbf" => false,
         // Most everything else works as of LLVM 19
         _ => true,
     };
